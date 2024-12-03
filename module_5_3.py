@@ -63,13 +63,12 @@ print(h2)
 print(h1 == h2) #__eq__
 
 print(h1.__add__(h1+10)) #__add__
-#print(h1)
+
 print(h1 == h2)
 
-print(h1.__iadd__(10))
-#print(h1)
+print(h1.__iadd__(10)) #__iadd__
 
-print(h2.__radd__(h2+10))
+print(h2.__radd__(h2+10)) #__radd__
 
 print(h1 < h2)
 print(h1 <= h2)
