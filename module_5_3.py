@@ -17,13 +17,17 @@ class House:
     def __str__(self):
         return (f'Название: {self.name}, кол-во этажей: {self.number_of_floors}')
 
-    def __eq__(self, other):  # 1
-        if isinstance(other.number_of_floors, int) and isinstance(other, House):
+    def __eq__(self, other):
+        if isinstance(other, House):
             return self.number_of_floors == other.number_of_floors
+        elif isinstance(other,int):
+            return self.number_of_floors == other
 
-    def __lt__(self, other):  # 2
-        if isinstance(other.number_of_floors, int) and isinstance(other, House):
+    def __lt__(self, other):
+        if isinstance(other, House):
             return self.number_of_floors < other.number_of_floors
+        elif isinstance(other, int):
+            return self.number_of_floors < other
 
     def __le__(self, other):
         if isinstance(other.number_of_floors, int) and isinstance(other, House):
@@ -41,7 +45,7 @@ class House:
         if isinstance(other.number_of_floors, int) and isinstance(other, House):
             return self.number_of_floors != other.number_of_floors
 
-    def __add__(self, value):
+    def __add__(self, value):      # Не совсем понял, зачем что-то менять в методе __add__
         if isinstance(value, int):
             self.number_of_floors = self.number_of_floors + value
         return self
