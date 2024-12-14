@@ -45,9 +45,11 @@ class House:
         if isinstance(other.number_of_floors, int) and isinstance(other, House):
             return self.number_of_floors != other.number_of_floors
 
-    def __add__(self, value):      # Не совсем понял, зачем что-то менять в методе __add__
+    def __add__(self, value):
         if isinstance(value, int):
             self.number_of_floors = self.number_of_floors + value
+        elif isinstance(value, House):
+            self.number_of_floors = self.number_of_floors + value.number_of_floors
         return self
 
     def __radd__(self, value):
@@ -65,14 +67,15 @@ print(h1)
 print(h2)
 
 print(h1 == h2) #__eq__
-
-print(h1.__add__(h1+10)) #__add__
-
+h1 = h1 + 10 #__add__
+print(h1)
 print(h1 == h2)
 
-print(h1.__iadd__(10)) #__iadd__
+h1 += 10 #__iadd__
+print(h1) 
 
-print(h2.__radd__(h2+10)) #__radd__
+h2 = 10 + h2 #__radd__
+print(h2)
 
 print(h1 < h2)
 print(h1 <= h2)
